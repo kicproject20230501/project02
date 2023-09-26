@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>hansik</title>
+    <style>
+        body {
+                background-image: url('{% static 'img/start/brbrsum.png'%}');
+                background-size: cover;
+        }
+        .container1{
+            width: 1200px;
+            height: 800px;
+            margin: 25px auto;
+        }
+        .t {
+            width: 800px;
+            margin: auto;
+            padding: 10px;
+            background-color: aliceblue;
+        }
+        .mhover:hover{
+            background-color: darkorange;
+        }
+
+        aside{
+            width: 200px;
+        }
+        div>a>img{
+            padding: 5px;
+            width: 500px;
+            height: 100%;
+        }
+        a>img {
+            width: 150px;
+            height: 150px;
+        }
+        .upup{
+            margin-bottom: 100px;
+            padding: 0; 
+        }
+        .bear>div>img{
+            width: 450px;
+            margin: 150px 0;
+            margin-left: -100px;
+        }
+    </style>
+    <script>
+        // 이미지 업로드시 함수 실행
+        function loadFile(input) {
+        var file = input.files[0];	//선택된 파일 가져오기
+
+        //이미지 source 가져오기
+        newImage.src = URL.createObjectURL(file);   
+        
+        //업로드 완료 확인필요? +
+        //업로드 이후 작업필요 !
+        };
+
+    </script>
+</head>
+
+<body>
+    <!-- 제목 -->
+    <div class="container1 position-relative">
+    <div class="position-absolute start-50 translate-middle-x" style="display: block;">
+        <div style="text-align: center;">
+            <div class="t" style="font-size: 3rem; border-radius: 15px 15px 15px 0; border: 3px solid #FFAD5B; padding: 0.5em 0.6em; color: #FF8000;">
+                 제목 입니다 </div>
+        </div>
+    </div>
+    <!-- 가이드 영상? 제목하고 묶여있음 -->
+    <div class="position-absolute top-50 start-50 translate-middle">
+        <div class="text-center" >
+            <div>
+                <div>가이드</div> 
+                <a href=""><img src="{% static 'img/start/11111.jpg'%}" alt=""></a>
+            </div>
+        </div>
+    </div>
+    <!-- 조회순위 출력부분 -->
+    <div class="position-relative">
+        <div class="position-absolute end-0" >
+        <div class="table-responsive ms-5">
+            <table class="table align-middle" style="text-align: center;">
+                <tr class="fs-3">
+                    <td>조회 순위</td>
+                </tr>
+                <tr>
+                    <td>1순위<br>
+                        <a href=""><img src="{% static 'img/start/11111.jpg'%}" alt=""></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2순위<br>
+                        <a href=""><img src="{% static 'img/start/11111.jpg'%}" alt=""></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3순위<br>
+                        <a href=""><img src="{% static 'img/start/11111.jpg'%}" alt=""></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!-- 캐릭터 -->
+    <div class="bear position-absolute" >
+        <div>
+            <img src="{% static 'img/start/123.png'%}" alt="">
+        </div>
+    </div>
+
+
+    </div>
+    <!-- 파일 업로드 ?-->
+    <div class="upup position-absolute bottom-0 start-50 translate-middle-x">
+        <form method="post" enctype="multipart/form-data">
+            <div class="button">
+                <label  class="mhover fs-3 fw-bold" for="chooseFile">
+                    👉 여기를 눌러서 사진 올리기! 👈
+                </label>
+            </div>
+            <input type="file" id="chooseFile" name="chooseFile" accept="image/*" style="visibility: hidden;" onchange="loadFile(this)">
+            <input type="submit" class="fs-4 fw-bold" value="찾기" style="margin-left: -115px;"></input>
+        </form>
+    </div>
+
+    </div>
+
+
+    <!--bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
