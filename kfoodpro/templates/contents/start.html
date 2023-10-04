@@ -49,13 +49,20 @@
     <script>
         // 이미지 업로드시 함수 실행
         function loadFile(input) {
-        var file = input.files[0];	//선택된 파일 가져오기
+        var guide = document.getElementById('guide')
+        var file = input.files[0];   
 
         //이미지 source 가져오기
-        newImage.src = URL.createObjectURL(file);   
-        
-        //업로드 완료 확인필요? +
-        //업로드 이후 작업필요 !
+        var newImage = document.createElement("img"); 
+        newImage.src = URL.createObjectURL(file);
+   
+        // 이미지 속성 설정
+        newImage.width = 500;
+        newImage.height = 100;
+    
+        // 이미지를 원하는 위치에 추가
+        guide.removeChild(guide.firstChild);
+        guide.appendChild(newImage);
         };
 
     </script>
@@ -75,7 +82,7 @@
         <div class="text-center" >
             <div>
                 <div>가이드</div> 
-                <a href=""><img src="{% static 'img/start/11111.jpg'%}" alt=""></a>
+                <a href="" id="guide"><img src="{% static 'img/start/sample.png'%}" alt=""></a>
             </div>
         </div>
     </div>
@@ -116,7 +123,8 @@
     </div>
     <!-- 파일 업로드 ?-->
     <div class="upup position-absolute bottom-0 start-50 translate-middle-x">
-        <form method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data" action="/contents/loading/">
+        {% csrf_token %} {# 반드시 필요함 #}
             <div class="button">
                 <label  class="mhover fs-3 fw-bold" for="chooseFile">
                     👉 여기를 눌러서 사진 올리기! 👈
