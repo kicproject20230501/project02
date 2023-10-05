@@ -16,4 +16,11 @@ class load_food_model:
             cls._instance = super().__new__(cls)
             # InceptionV3 모델을 초기화하고 로드하는 코드
             cls._instance.model = tf.keras.models.load_model("kfoodpro/foodmodels/8")
+            print(" == Food model loaded success == ")
         return cls._instance
+    
+    
+    def predict(self, img_array):
+        predictions = self.model.predict(tf.expand_dims(img_array, axis=0))
+        
+        return predictions

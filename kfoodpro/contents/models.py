@@ -10,7 +10,7 @@ class Food(models.Model):
     count = models.IntegerField(default=0) # 검색 횟수
     
     def __str__(self):
-        return self.name + " : " + self.num
+        return self.name + " : " + str(self.num)
     
 
 class Feedback(models.Model):
