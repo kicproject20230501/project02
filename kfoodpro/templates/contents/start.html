@@ -1,62 +1,16 @@
 {% load static %}
-<<<<<<< HEAD
 <link rel="stylesheet" href="{% static 'css/foodstart.css' %}">
-=======
->>>>>>> parent of 477beea (10.05수정)
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>hansik</title>
-    <style>
-        body {
-                background-image: url('{% static 'img/start/brbrsum.png'%}');
-                background-size: cover;
-        }
-        .container1{
-            width: 1200px;
-            height: 800px;
-            margin: 25px auto;
-        }
-        .t {
-            width: 800px;
-            margin: auto;
-            padding: 10px;
-            background-color: aliceblue;
-        }
-        .mhover:hover{
-            background-color: darkorange;
-        }
-
-        aside{
-            width: 200px;
-        }
-        div>a>img{
-            padding: 5px;
-            width: 500px;
-            height: 100%;
-        }
-        a>img {
-            width: 150px;
-            height: 150px;
-        }
-        .upup{
-            margin-bottom: 100px;
-            padding: 0; 
-        }
-        .bear>div>img{
-            width: 450px;
-            margin: 150px 0;
-            margin-left: -100px;
-        }
-    </style>
-    <script>
+      <script>
         // 이미지 업로드시 함수 실행
         function loadFile(input) {
         var file = input.files[0];	//선택된 파일 가져오기
 
         //이미지 source 가져오기
-<<<<<<< HEAD
         var newImage = document.createElement("img"); 
         newImage.src = URL.createObjectURL(file);
    
@@ -68,12 +22,8 @@
         // 이미지 속성 설정
         newImage.style.width = '500px'
         newImage.style.height = '336px'
-=======
         newImage.src = URL.createObjectURL(file);   
         
-        //업로드 완료 확인필요? +
-        //업로드 이후 작업필요 !
->>>>>>> parent of 477beea (10.05수정)
         };
 
     </script>
@@ -93,7 +43,7 @@
         <div class="text-center" >
             <div>
                 <div>가이드</div> 
-                <a href=""><img src="{% static 'img/start/11111.jpg'%}" alt=""></a>
+                <a id="guide" href=""><img src="{% static 'img/start/11111.jpg'%}" alt=""></a>
             </div>
         </div>
     </div>
@@ -134,12 +84,9 @@
     </div>
     <!-- 파일 업로드 ?-->
     <div class="upup position-absolute bottom-0 start-50 translate-middle-x">
-<<<<<<< HEAD
         <form method="post" enctype="multipart/form-data" action="/contents/start/">
             {% csrf_token %}
-=======
         <form method="post" enctype="multipart/form-data">
->>>>>>> parent of 477beea (10.05수정)
             <div class="button">
                 <label  class="mhover fs-3 fw-bold" for="chooseFile">
                     👉 여기를 눌러서 사진 올리기! 👈

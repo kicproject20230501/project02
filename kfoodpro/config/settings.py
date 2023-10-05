@@ -57,7 +57,7 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR, 'templates'], # html 폴더 경로
+        "DIRS": [os.path.join(BASE_DIR, 'templates')], # html 폴더 경로
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -84,7 +84,7 @@ DATABASES = {
         "USER" : "kic",
         "PASSWORD" : "1111",
         "HOST" : "localhost",
-        "PORT" : "3305"
+        "PORT" : "3307"
     }
 }
 
