@@ -33,7 +33,7 @@ def login(request):
                     context = {"msg":"비밀번호 오류: "+str(manager.errcount)+"회, 5회 초과 시 로그인 불가"\
                                ,"url":"/management/login"}
                     return render(request,"alert.html",context)
-            else: # 비밀번호 오류 횟수 10회 초과 시
+            else: # 비밀번호 오류 횟수 5회 초과 시
                 context = {"msg":"비밀번호 오류 횟수 5회 초과로 로그인 불가", "url":"/management/login"}
                 return render(request,"alert.html",context)
 

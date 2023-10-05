@@ -1,68 +1,29 @@
 {% load static %}
+<link rel="stylesheet" href="{% static 'css/foodstart.css' %}">
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <title>hansik</title>
-    <style>
-        body {
-                background-image: url('{% static 'img/start/brbrsum.png'%}');
-                background-size: cover;
-        }
-        .container1{
-            width: 1200px;
-            height: 800px;
-            margin: 25px auto;
-        }
-        .t {
-            width: 800px;
-            margin: auto;
-            padding: 10px;
-            background-color: aliceblue;
-        }
-        .mhover:hover{
-            background-color: darkorange;
-        }
-
-        aside{
-            width: 200px;
-        }
-        div>a>img{
-            padding: 5px;
-            width: 500px;
-            height: 100%;
-        }
-        a>img {
-            width: 150px;
-            height: 150px;
-        }
-        .upup{
-            margin-bottom: 100px;
-            padding: 0; 
-        }
-        .bear>div>img{
-            width: 450px;
-            margin: 150px 0;
-            margin-left: -100px;
-        }
-    </style>
-    <script>
+      <script>
         // 이미지 업로드시 함수 실행
         function loadFile(input) {
-        var guide = document.getElementById('guide')
-        var file = input.files[0];   
+        var file = input.files[0];	//선택된 파일 가져오기
 
         //이미지 source 가져오기
         var newImage = document.createElement("img"); 
         newImage.src = URL.createObjectURL(file);
    
-        // 이미지 속성 설정
-        newImage.width = 500;
-        newImage.height = 100;
-    
+            
         // 이미지를 원하는 위치에 추가
-        guide.removeChild(guide.firstChild);
-        guide.appendChild(newImage);
+        guide.removeChild(guide.firstChild)
+        guide.appendChild(newImage)
+        
+        // 이미지 속성 설정
+        newImage.style.width = '500px'
+        newImage.style.height = '336px'
+        newImage.src = URL.createObjectURL(file);   
+        
         };
 
     </script>
@@ -74,7 +35,7 @@
     <div class="position-absolute start-50 translate-middle-x" style="display: block;">
         <div style="text-align: center;">
             <div class="t" style="font-size: 3rem; border-radius: 15px 15px 15px 0; border: 3px solid #FFAD5B; padding: 0.5em 0.6em; color: #FF8000;">
-                 제목 입니다 </div>
+                 어떤 음식일까요? </div>
         </div>
     </div>
     <!-- 가이드 영상? 제목하고 묶여있음 -->
@@ -82,7 +43,7 @@
         <div class="text-center" >
             <div>
                 <div>가이드</div> 
-                <a href="" id="guide"><img src="{% static 'img/start/sample.png'%}" alt=""></a>
+                <a id="guide" href=""><img src="{% static 'img/start/sample.png'%}" alt=""></a>
             </div>
         </div>
     </div>
@@ -123,8 +84,9 @@
     </div>
     <!-- 파일 업로드 ?-->
     <div class="upup position-absolute bottom-0 start-50 translate-middle-x">
-        <form method="post" enctype="multipart/form-data" action="/contents/loading/">
-        {% csrf_token %} {# 반드시 필요함 #}
+        <form method="post" enctype="multipart/form-data" action="/contents/start/">
+            {% csrf_token %}
+        <form method="post" enctype="multipart/form-data">
             <div class="button">
                 <label  class="mhover fs-3 fw-bold" for="chooseFile">
                     👉 여기를 눌러서 사진 올리기! 👈
